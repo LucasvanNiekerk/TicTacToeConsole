@@ -17,20 +17,24 @@ namespace TicTacToeConsole
             get { return _board; }
         }
 
+        public char[] Pieces
+        {
+            get { return _pieces; }
+        }
+
         public Boolean SetPiece(char c, int row, int col)
         {
-            if (ValidInput(c, row, col))
+            if (ValidInput(c, row, col) && PositionFree(row, col))
             {
                 _board[row, col] = c;
                 return true;
             }
             else return false;
         }
-
         private Boolean ValidInput(char c, int row, int col)
         {
             //if (c == _pieces[0] && c == _pieces[1])
-            if (_pieces.Contains(c))
+            if (Pieces.Contains(c))
             {
                 if (row <= _boardSize - 1 && row >= 0)
                 {
@@ -38,6 +42,11 @@ namespace TicTacToeConsole
                 }
             }
             return false;
+        }
+        private bool PositionFree(int row, int col)
+        {
+            if (_board[row, col] == '\0') return true;
+            else return false;
         }
     }
 }
