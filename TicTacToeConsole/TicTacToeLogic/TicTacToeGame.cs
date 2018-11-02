@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace TicTacToeConsole
 {
-    class Program
+    class TicTacToeGame
     {
-        static void Main(string[] args)
-        {
 
-        }
     }
 }
